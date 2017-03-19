@@ -8,4 +8,4 @@ be required.  I'm requiring nodemon, json-body-parser, uuid, and express of cour
 packages.json for more info.
 
 By default the server runs on port 8080.  Calls to the '/' endpoint will be routed to '/blog-posts' and handled
-at that point.
+at that point.  You'll probably need Postman or something similar to test this.
