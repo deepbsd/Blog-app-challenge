@@ -42,7 +42,7 @@ describe('BlogPosts', function() {
         res.body.forEach(function(item) {
           item.should.be.a('object');
           item.should.have.all.keys(
-            'title', 'author', 'content', 'publishDate');
+            'id','title', 'author', 'content', 'publishDate');
         });
       });
   });
