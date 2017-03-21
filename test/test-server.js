@@ -69,7 +69,7 @@ describe('BlogPosts', function() {
     // we can make a second, PUT call to the app.
     const updateData = {
       title: 'First Blog Post',
-      author: 'Dave foo',
+      author: 'Dave MeBoy',
       content: 'This is my first blog post.'
     };
 
