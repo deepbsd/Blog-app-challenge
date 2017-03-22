@@ -63,52 +63,53 @@ describe('BlogPosts', function() {
       });
   });
 
-    it('should update blog post on PUT', function() {
-    // we initialize our updateData here and then after the initial
-    // request to the app, we update it with an `id` property so
-    // we can make a second, PUT call to the app.
-    const updateData = {
-      title: 'First Blog Post',
-      author: 'Dave MeBoy',
-      content: 'This is my first blog post.'
-    };
+  it('should update blog post on PUT', function() {
+  // we initialize our updateData here and then after the initial
+  // request to the app, we update it with an `id` property so
+  // we can make a second, PUT call to the app.
+  const updateData = {
+    title: 'First Blog Post',
+    author: 'Dave MeBoy',
+    content: 'This is my first blog post.'
+  };
 
-    return chai.request(app)
-      // first have to get so we have an idea of object to update
-      .get('/blog-posts')
-      .then(function(res) {
-        updateData.id = res.body[0].id;
-        updateData.publishDate = res.body[0].publishDate;
-        // this will return a promise whose value will be the response
-        // object, which we can inspect in the next `then` back. Note
-        // that we could have used a nested callback here instead of
-        // returning a promise and chaining with `then`, but we find
-        // this approach cleaner and easier to read and reason about.
-        return chai.request(app)
-          .put(`/blog-posts/${updateData.id}`)
-          .send(updateData);
-      })
-      // prove that the PUT request has right status code
-      // and returns updated item
-      .then(function(res) {
-        res.should.have.status(200);
-        res.should.be.json;
-        res.body.should.be.a('object');
-        res.body.should.deep.equal(updateData);
-      });
-  });
-  it('should delete items on DELETE', function() {
-    return chai.request(app)
-      // first have to get so we have an `id` of item
-      // to delete
-      .get('/blog-posts')
-      .then(function(res) {
-        return chai.request(app)
-          .delete(`/blog-posts/${res.body[0].id}`);
-      })
-      .then(function(res) {
-        res.should.have.status(204);
-      });
-  });
+  return chai.request(app)
+    // first have to get so we have an idea of object to update
+    .get('/blog-posts')
+    .then(function(res) {
+      updateData.id = res.body[0].id;
+      updateData.publishDate = res.body[0].publishDate;
+      // this will return a promise whose value will be the response
+      // object, which we can inspect in the next `then` back. Note
+      // that we could have used a nested callback here instead of
+      // returning a promise and chaining with `then`, but we find
+      // this approach cleaner and easier to read and reason about.
+      return chai.request(app)
+        .put(`/blog-posts/${updateData.id}`)
+        .send(updateData);
+    })
+    // prove that the PUT request has right status code
+    // and returns updated item
+    .then(function(res) {
+      res.should.have.status(200);
+      res.should.be.json;
+      res.body.should.be.a('object');
+      res.body.should.deep.equal(updateData);
+    });
+});
+
+it('should delete items on DELETE', function() {
+  return chai.request(app)
+    // first have to get so we have an `id` of item
+    // to delete
+    .get('/blog-posts')
+    .then(function(res) {
+      return chai.request(app)
+        .delete(`/blog-posts/${res.body[0].id}`);
+    })
+    .then(function(res) {
+      res.should.have.status(204);
+    });
+});
 
 });
