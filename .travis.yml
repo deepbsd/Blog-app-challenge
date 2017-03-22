@@ -1,2 +1,9 @@
 language: node_js
 node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: f0+exmLXs9HMSrUX+1CCSL7N1Fle+Qf4uTZF7FG/pnfERi3mwKDwkFxnmAqgGvQrt9S8WEb7in3m2xTWv48PPqf6L1YuuB1OiUzYCEYFvEgiYo8lgF6GZe+cUAMa9VRLI6APoK0m8OrBCo6GEFwGB9g4n3JrxZ2HYUaxZOriq0yOsoC8XHxzBuUksyKsAT8nCjUUALmVynYRlv8XmWJS488pgX0lSSyHj+QYH/lFa3VYTd2YJFAwRdp2wisvbJku4caq4++VwS02m586/ZmcHpC1rrBCAZoYyQB9Lo20v2AY9MagvqoB/ujb0hamxd8J7mgzp/4kBV0UWKVuLeKQV2IlC5YsPJ5A0EjO5UQEl8OJxu4faY3eL9zC5lAnRhCEUEdEgzvrdDZB1XJ6RDhyNOCnUS4wyoWoA4/ZxBCa/EzB0KLaQJpaapDm+MqS5zntDSKviwbrEoUZzgWbWNU8ZXCBNohdxiymzTeZI3XDIu4urKFvnB+klK3nFXoFd5XtPfM5F51VMH+UMYuPX7Wh2TeMKmMjvY3hMH1gMYgUgwDal9M3jtB0aaMmDZNCWtrQsg3UUNnroUtKDeTjlfrEAEIfIVGXIUBS0lBzj7SjP6nOGTIB2joKl+M/IYhWVy91iac8ZEidGnxHXgTF5G92lb6gQEiUA1jzV7baNJBZS+M=
+  app: fierce-citadel-70260
+  on:
+    repo: deepbsd/Blog-app-challenge
